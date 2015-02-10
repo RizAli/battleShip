@@ -20,7 +20,11 @@ describe Ship do
 		expect(ship.destroy!).to eq(true)
 	end
 
-	
+	it "should know its location" do
+		ship = Ship.new
+		ship.place_at([0][0])
+		expect(ship.location).to eq([0][0])
+	end
 
 
 	

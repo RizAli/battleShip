@@ -4,28 +4,33 @@ describe Ship do
 
 	it 'should know its size' do
 		ship = Ship.new
-		ship.size
 		expect(ship.size).to eq(1)
 	end
 
-	it 'should have a status' do
-		ship = Ship.new
-		expect(ship.destroyed?).to satisfy{ |ship| false || true}
+
+	describe 'destruction' do
+
+		it 'knows if it is sunk' do
+			ship = Ship.new
+			ship.fire
+			expect(ship).to be_sunk
+		end
+
 	end
 
-	it 'should be able to destoryed' do
-		ship = Ship.new
-		expect(ship.destroyed?).to eq(false)
-		ship.destroy!
-		expect(ship.destroy!).to eq(true)
-	end
-
-	it "should know its location" do
-		ship = Ship.new
-		ship.place_at([0][0])
-		expect(ship.location).to eq([0][0])
-	end
+		it 'can receive fire' do
+			ship = Ship.new
+			expect(ship.fire).to eq(1)
+		end
 
 
+		it "can be placed at location" do
+			ship = Ship.new
+			ship.place_at(0,0)
+			expect(ship.x).to eq(0)
+			expect(ship.y).to eq(0)
+		end
+
+	
 	
 end

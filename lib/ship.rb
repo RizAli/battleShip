@@ -1,31 +1,34 @@
 class Ship
 
+	attr_accessor :x, :y, :size, :fire
+
 	def initialize
 		@size = 1
-		@destroyed = false
-		@location
+		@x
+		@y
+		@fire = 0
 	end
 
 	def size
 		@size
 	end
 
-	def destroyed?
-		@destroyed
+	def sunk?
+		@size == @fire
+	end	
+
+	def place_at(x,y)
+		@x = x
+		@y = y
 	end
 
-	def location
-		@location
+	# def place_at(array)
+	# 	@location = array
+	# end
+
+	def fire
+		@fire +=1
+
 	end
-
-	def destroy!
-		@destroyed = true
-	end
-
-	def place_at(array)
-		@location = array
-	end
-
-
 
 end
